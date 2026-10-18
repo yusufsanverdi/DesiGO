@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DesiGO.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20">
+
+            <!--  Gönderici Bilgileri  -->
+            <Label Text="Gönderici Bilgileri" />
+
+            <!--  Ad Soyad  -->
+            <HorizontalStackLayout>
+                <Label
+                    BackgroundColor="Aqua"
+                    Rotation="0,1"
+                    Text="Gönderici Ad Soyad:"
+                    TextColor="Black"
+                    x:Name="lblGondericiAdSoyad" />
+                <Entry
+                    Keyboard="{x:Static Keyboard.Text}"
+                    Placeholder="Adınız, soyadınız..."
+                    x:Name="entGondericiAdSoyad" />
+            </HorizontalStackLayout>
+
+            <!--  T.C Kimlik No  -->
+            <HorizontalStackLayout>
+                <Label
+                    BackgroundColor="Aqua"
+                    Text="TC Kimlik No:"
+                    TextColor="Black"
+                    x:Name="lblGondericiTcNo" />
+                <Entry
+                    Keyboard="{x:Static Keyboard.Numeric}"
+                    MaxLength="11"
+                    Placeholder="TC Kimlik Numaranız"
+                    x:Name="entGondericiTcNo" />
+            </HorizontalStackLayout>
+
+            <!--  Adres Bilgileri  -->
+            <HorizontalStackLayout>
+                <Label
+                    BackgroundColor="Aqua"
+                    Text="Gönderici Adresi:"
+                    TextColor="Black"
+                    x:Name="lblGondericiAdres" />
+                <Entry
+                    Keyboard="{x:Static Keyboard.Numeric}"
+                    MaxLength="11"
+                    Placeholder="Gönderici Adresi"
+                    x:Name="entGondericiAdresi" />
+            </HorizontalStackLayout>
+
+            <!--  Alıcı Bilgileri  -->
+            <Label Text="Alıcı Bilgileri" />
+
+            <!--  Alıcı Ad Soyad  -->
+            <HorizontalStackLayout>
+                <Label
+                    BackgroundColor="Aqua"
+                    Rotation="0,1"
+                    Text="Alıcı Ad Soyad:"
+                    TextColor="Black"
+                    x:Name="lblAliciAdSoyad" />
+                <Entry
+                    Keyboard="{x:Static Keyboard.Text}"
+                    Placeholder="Adınız, soyadınız..."
+                    x:Name="entAliciAdSoyad" />
+            </HorizontalStackLayout>
+
+            <!--  Alıcı T.C Kimlik No  -->
+            <HorizontalStackLayout>
+                <Label
+                    BackgroundColor="Aqua"
+                    Text="TC Kimlik No:"
+                    TextColor="Black"
+                    x:Name="lblAliciTcNo" />
+                <Entry
+                    Keyboard="{x:Static Keyboard.Numeric}"
+                    MaxLength="11"
+                    Placeholder="TC Kimlik Numaranız"
+                    x:Name="entAliciTcNo" />
+            </HorizontalStackLayout>
+
+            <!--  Alıcı Adres Bilgileri  -->
+            <HorizontalStackLayout>
+                <Label
+                    BackgroundColor="Aqua"
+                    Text="Gönderici Adresi:"
+                    TextColor="Black"
+                    x:Name="lblAliciAdres" />
+                <Entry
+                    Keyboard="{x:Static Keyboard.Numeric}"
+                    MaxLength="11"
+                    Placeholder="Gönderici Adresi"
+                    x:Name="entAliciAdresi" />
+            </HorizontalStackLayout>
+
+
+            <!--  Kargo Bilgileri  -->
+            <Label Text="Kargo Bilgileri" />
+
+            <!--  Kargo En, Boy, Yükseklik, Adet, Toplam Mesafe  -->
+            <HorizontalStackLayout>
+                <Label Text="En (cm)" />
+                <Slider
+                    Maximum="100"
+                    Minimum="0"
+                    x:Name="sldEn" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Boy (cm)" />
+                <Slider
+                    Maximum="100"
+                    Minimum="0"
+                    x:Name="sldBoy" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Yükseklik (cm)" />
+                <Slider
+                    Maximum="100"
+                    Minimum="0"
+                    x:Name="sldYukseklik" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Adet" />
+                <Stepper
+                    Maximum="100"
+                    Minimum="0"
+                    x:Name="stpAdet" />
+            </HorizontalStackLayout>
+
+
+            <HorizontalStackLayout>
+                <Label Text="Toplam Mesafe (km)" />
+                <Slider
+                    Maximum="1500"
+                    Minimum="30"
+                    x:Name="sldToplamMesafe" />
+            </HorizontalStackLayout>
+
+
+            <!--  Kargo Ağırlık  -->
+            <HorizontalStackLayout>
+                <Label Text="Ağırlık (kg)" />
+                <Slider
+                    Maximum="100"
+                    Minimum="0"
+                    x:Name="sldAgirlik" />
+            </HorizontalStackLayout>
+
+
+
+            <!--  İşlemler  -->
+            <Label Text="İşlemler" />
+            <!--  Bilgileri Göster  -->
+
+            <VerticalStackLayout>
+
+
+                <Button
+                    Clicked="BtnBilgiGoster_OnClicked"
+                    Text="Bilgileri Göster"
+                    x:Name="btnBilgiGoster" />
+
+                <!--  Bilgileri Temizle  -->
+                <Button
+                    Clicked="BtnBilgiTemizle_OnClicked"
+                    Text="Bilgileri Temizle"
+                    x:Name="btnBilgiTemizle" />
+
+                <!--  kargo ücreti hesapla  -->
+                <Button
+                    Clicked="BtnKargoUcretiHesapla_OnClicked"
+                    Text="Kargo Ücreti Hesapla"
+                    x:Name="btnKargoUcretiHesapla" />
+
+                <!--  Alıcı Bilgileri Göster  -->
+                <Button
+                    Clicked="BtnAliciBilgiGoster_OnClicked"
+                    Text="Alıcı Bilgileri Göster"
+                    x:Name="btnAliciBilgiGoster" />
+
+                <!--  Gönderici Bilgileri Göster  -->
+                <Button
+                    Clicked="BtnGondericiBilgiGoster_OnClicked"
+                    Text="Gönderici Bilgileri Göster"
+                    x:Name="btnGondericiBilgiGoster" />
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
