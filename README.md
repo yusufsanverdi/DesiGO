@@ -84,14 +84,6 @@ Projeyi yerel makinenizde çalıştırmak için:
 
 ---
 
-## 📱 Ekran Görüntüleri
-
-| Gönderici & Alıcı Formu (Grid) | Kargo Boyutları & Desi Hesaplama | İşlem Butonları & Sonuç |
-| :---: | :---: | :---: |
-| *(Ekran Görüntüsü Eklenecektir)* | *(Ekran Görüntüsü Eklenecektir)* | *(Ekran Görüntüsü Eklenecektir)* |
-
----
-
 ## 🔗 Kaynak Kod & İletişim
 
 - **GitHub Deposu:** [https://github.com/yusufsanverdi/DesiGO](https://github.com/yusufsanverdi/DesiGO)
