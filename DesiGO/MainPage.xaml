@@ -1,197 +1,420 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="DesiGO.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--  Marka ve Ana Roller  -->
+            <Color x:Key="LabelBgColor">#2B78E4</Color>
+            <Color x:Key="EntryPlaceHolderColor">#4A9E92</Color>
+            <Color x:Key="GridBgColor">#E0E0E0</Color>
+            <Color x:Key="MainBgColor">#2ECC71</Color>
+            <Color x:Key="SliderBgColor">#E8F0FE</Color>
+
+
+            <!--  Durum Renkleri (Feedback / Status)  -->
+            <Color x:Key="ButtonBgColor">#F1C40F</Color>
+            <Color x:Key="ButtonTextColor">#000000</Color>
+            <Color x:Key="DangerColor">#E74C3C</Color>
+            <Color x:Key="InfoColor">#3498DB</Color>
+
+            <!--  Nötr Renkler (Metin, Arka Plan, Kenarlık)  -->
+            <Color x:Key="BackgroundColor">#F8F9FA</Color>
+            <Color x:Key="SurfaceColor">#FFFFFF</Color>
+            <Color x:Key="TextPrimaryColor">#1A1A1A</Color>
+            <Color x:Key="TextSecondaryColor">#757575</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
     <ScrollView>
         <VerticalStackLayout Padding="20,20">
 
             <!--  Gönderici Bilgileri  -->
-            <Label Text="Gönderici Bilgileri" />
+            <Label
+                BackgroundColor="{StaticResource MainBgColor}"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Padding="10"
+                Text="Gönderici Bilgileri"
+                VerticalTextAlignment="Center" />
+            <BoxView HeightRequest="3" />
 
-            <!--  Ad Soyad  -->
-            <HorizontalStackLayout>
+            <Grid
+                BackgroundColor="{StaticResource GridBgColor}"
+                ColumnDefinitions="*,2*"
+                HeightRequest="250"
+                Padding="5"
+                RowDefinitions="Auto,Auto,Auto, Auto"
+                Width="400">
+
                 <Label
-                    BackgroundColor="Aqua"
-                    Rotation="0,1"
-                    Text="Gönderici Ad Soyad:"
-                    TextColor="Black"
-                    x:Name="lblGondericiAdSoyad" />
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Padding="15"
+                    Text="Adı Soyadı:"
+                    VerticalTextAlignment="Center" />
                 <Entry
-                    Keyboard="{x:Static Keyboard.Text}"
-                    Placeholder="Adınız, soyadınız..."
-                    x:Name="entGondericiAdSoyad" />
-            </HorizontalStackLayout>
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Keyboard="Text"
+                    Placeholder="Adınız, Soyadınız"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entGndAdSoyad" />
 
-            <!--  T.C Kimlik No  -->
-            <HorizontalStackLayout>
                 <Label
-                    BackgroundColor="Aqua"
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Padding="15"
+                    Text="Adresi:"
+                    VerticalTextAlignment="Center" />
+                <Entry
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Keyboard="Text"
+                    Placeholder="Adresiniz"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entGndAdres" />
+
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Padding="15"
                     Text="TC Kimlik No:"
-                    TextColor="Black"
-                    x:Name="lblGondericiTcNo" />
+                    VerticalTextAlignment="Center" />
                 <Entry
-                    Keyboard="{x:Static Keyboard.Numeric}"
-                    MaxLength="11"
-                    Placeholder="TC Kimlik Numaranız"
-                    x:Name="entGondericiTcNo" />
-            </HorizontalStackLayout>
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Keyboard="Text"
+                    Placeholder="TC Kimlik No"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entGndTCKimlikNo" />
 
-            <!--  Adres Bilgileri  -->
-            <HorizontalStackLayout>
+
                 <Label
-                    BackgroundColor="Aqua"
-                    Text="Gönderici Adresi:"
-                    TextColor="Black"
-                    x:Name="lblGondericiAdres" />
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Padding="15"
+                    Text="Telefon:"
+                    VerticalTextAlignment="Center" />
                 <Entry
-                    Keyboard="{x:Static Keyboard.Numeric}"
-                    MaxLength="11"
-                    Placeholder="Gönderici Adresi"
-                    x:Name="entGondericiAdresi" />
-            </HorizontalStackLayout>
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Keyboard="Text"
+                    Placeholder="Telefon Numarası"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entGndTelefon" />
+
+            </Grid>
+
 
             <!--  Alıcı Bilgileri  -->
-            <Label Text="Alıcı Bilgileri" />
+            <Label
+                BackgroundColor="{StaticResource MainBgColor}"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Padding="10"
+                Text="Alıcı Bilgileri"
+                VerticalTextAlignment="Center" />
+            <BoxView HeightRequest="3" />
 
-            <!--  Alıcı Ad Soyad  -->
-            <HorizontalStackLayout>
+            <Grid
+                BackgroundColor="{StaticResource GridBgColor}"
+                ColumnDefinitions="*,2*"
+                HeightRequest="250"
+                Padding="5"
+                RowDefinitions="Auto,Auto,Auto, Auto"
+                Width="400">
+
                 <Label
-                    BackgroundColor="Aqua"
-                    Rotation="0,1"
-                    Text="Alıcı Ad Soyad:"
-                    TextColor="Black"
-                    x:Name="lblAliciAdSoyad" />
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Padding="15"
+                    Text="Adı Soyadı:"
+                    VerticalTextAlignment="Center" />
                 <Entry
-                    Keyboard="{x:Static Keyboard.Text}"
-                    Placeholder="Adınız, soyadınız..."
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Keyboard="Text"
+                    Placeholder="Adınız, Soyadınız"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
                     x:Name="entAliciAdSoyad" />
-            </HorizontalStackLayout>
 
-            <!--  Alıcı T.C Kimlik No  -->
-            <HorizontalStackLayout>
                 <Label
-                    BackgroundColor="Aqua"
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Padding="15"
+                    Text="Adresi:"
+                    VerticalTextAlignment="Center" />
+                <Entry
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Keyboard="Text"
+                    Placeholder="Adresiniz"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entAliciAdres" />
+
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Padding="15"
                     Text="TC Kimlik No:"
-                    TextColor="Black"
-                    x:Name="lblAliciTcNo" />
+                    VerticalTextAlignment="Center" />
                 <Entry
-                    Keyboard="{x:Static Keyboard.Numeric}"
-                    MaxLength="11"
-                    Placeholder="TC Kimlik Numaranız"
-                    x:Name="entAliciTcNo" />
-            </HorizontalStackLayout>
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Keyboard="Text"
+                    Placeholder="TC Kimlik No"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entAliciTCKimlikNo" />
 
-            <!--  Alıcı Adres Bilgileri  -->
-            <HorizontalStackLayout>
+
                 <Label
-                    BackgroundColor="Aqua"
-                    Text="Gönderici Adresi:"
-                    TextColor="Black"
-                    x:Name="lblAliciAdres" />
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Padding="15"
+                    Text="Telefon:"
+                    VerticalTextAlignment="Center" />
                 <Entry
-                    Keyboard="{x:Static Keyboard.Numeric}"
-                    MaxLength="11"
-                    Placeholder="Gönderici Adresi"
-                    x:Name="entAliciAdresi" />
-            </HorizontalStackLayout>
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Keyboard="Text"
+                    Placeholder="Telefon Numarası"
+                    PlaceholderColor="{StaticResource EntryPlaceHolderColor}"
+                    VerticalTextAlignment="Center"
+                    x:Name="entAliciTelefon" />
 
+            </Grid>
 
             <!--  Kargo Bilgileri  -->
-            <Label Text="Kargo Bilgileri" />
+            <Label
+                BackgroundColor="{StaticResource MainBgColor}"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Padding="10"
+                Text="Kargo Bilgileri"
+                VerticalTextAlignment="Center" />
+            <BoxView HeightRequest="3" />
 
-            <!--  Kargo En, Boy, Yükseklik, Adet, Toplam Mesafe  -->
-            <HorizontalStackLayout>
-                <Label Text="En (cm)" />
+            <Grid
+                BackgroundColor="{StaticResource GridBgColor}"
+                ColumnDefinitions="2*,2*,*"
+                Padding="5"
+                RowDefinitions="Auto,Auto,Auto, Auto, Auto, Auto"
+                Width="600">
+
+
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Padding="15"
+                    Text="Kargo Eni (cm):"
+                    VerticalTextAlignment="Center" />
+
                 <Slider
+                    BackgroundColor="{StaticResource SliderBgColor}"
+                    Grid.Column="1"
+                    Grid.Row="0"
                     Maximum="100"
                     Minimum="0"
-                    x:Name="sldEn" />
-            </HorizontalStackLayout>
+                    ValueChanged="SldKargoEni_OnValueChanged"
+                    x:Name="sldKargoEni" />
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Padding="5"
+                    VerticalTextAlignment="Center"
+                    x:Name="lblKargoEni" />
 
-            <HorizontalStackLayout>
-                <Label Text="Boy (cm)" />
+
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Padding="15"
+                    Text="Kargo Genişliği (cm):"
+                    VerticalTextAlignment="Center" />
+
                 <Slider
+                    BackgroundColor="{StaticResource SliderBgColor}"
+                    Grid.Column="1"
+                    Grid.Row="1"
                     Maximum="100"
                     Minimum="0"
-                    x:Name="sldBoy" />
-            </HorizontalStackLayout>
+                    ValueChanged="SldKargoGenisligi_OnValueChanged"
+                    x:Name="sldKargoGenisligi" />
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Padding="5"
+                    VerticalTextAlignment="Center"
+                    x:Name="lblKargoGenisligi" />
 
-            <HorizontalStackLayout>
-                <Label Text="Yükseklik (cm)" />
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Padding="15"
+                    Text="Kargo Yüksekliği (cm):"
+                    VerticalTextAlignment="Center" />
+
                 <Slider
+                    BackgroundColor="{StaticResource SliderBgColor}"
+                    Grid.Column="1"
+                    Grid.Row="2"
                     Maximum="100"
                     Minimum="0"
-                    x:Name="sldYukseklik" />
-            </HorizontalStackLayout>
+                    ValueChanged="SldKargoYuksekligi_OnValueChanged"
+                    x:Name="sldKargoYuksekligi" />
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Padding="5"
+                    VerticalTextAlignment="Center"
+                    x:Name="lblKargoYuksekligi" />
 
-            <HorizontalStackLayout>
-                <Label Text="Adet" />
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Padding="15"
+                    Text="Kutu Sayısı (adet):"
+                    VerticalTextAlignment="Center" />
+
                 <Stepper
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Margin="20"
+                    Maximum="10"
+                    Minimum="1"
+                    ValueChanged="StpKutuSayisi_OnValueChanged"
+                    x:Name="stpKutuSayisi" />
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="3"
+                    Padding="5"
+                    VerticalTextAlignment="Center"
+                    x:Name="lblKutuSayisi" />
+
+                <Label
+                    BackgroundColor="{StaticResource LabelBgColor}"
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Padding="15"
+                    Text="Kargo Ağırlığı (kg):"
+                    VerticalTextAlignment="Center" />
+
+                <Stepper
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Margin="20"
                     Maximum="100"
-                    Minimum="0"
-                    x:Name="stpAdet" />
-            </HorizontalStackLayout>
+                    Minimum="1"
+                    ValueChanged="StpKargoAgirligi_OnValueChanged"
+                    x:Name="stpKargoAgirligi" />
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="4"
+                    Padding="5"
+                    VerticalTextAlignment="Center"
+                    x:Name="lblKargoAgirligi" />
 
 
-            <HorizontalStackLayout>
-                <Label Text="Toplam Mesafe (km)" />
-                <Slider
-                    Maximum="1500"
-                    Minimum="30"
-                    x:Name="sldToplamMesafe" />
-            </HorizontalStackLayout>
+                <Label
+                    BackgroundColor="GreenYellow"
+                    FontSize="20"
+                    Grid.ColumnSpan="3"
+                    Grid.Row="5"
+                    HorizontalTextAlignment="Center"
+                    Margin="15"
+                    Padding="15"
+                    Text="Kargo Ücreti:"
+                    VerticalTextAlignment="Center"
+                    x:Name="lblKargoUcreti" />
 
-
-            <!--  Kargo Ağırlık  -->
-            <HorizontalStackLayout>
-                <Label Text="Ağırlık (kg)" />
-                <Slider
-                    Maximum="100"
-                    Minimum="0"
-                    x:Name="sldAgirlik" />
-            </HorizontalStackLayout>
+            </Grid>
 
 
 
-            <!--  İşlemler  -->
-            <Label Text="İşlemler" />
-            <!--  Bilgileri Göster  -->
 
-            <VerticalStackLayout>
-
+            <VerticalStackLayout HorizontalOptions="Center">
 
                 <Button
-                    Clicked="BtnBilgiGoster_OnClicked"
-                    Text="Bilgileri Göster"
-                    x:Name="btnBilgiGoster" />
-
-                <!--  Bilgileri Temizle  -->
-                <Button
-                    Clicked="BtnBilgiTemizle_OnClicked"
-                    Text="Bilgileri Temizle"
-                    x:Name="btnBilgiTemizle" />
-
-                <!--  kargo ücreti hesapla  -->
-                <Button
+                    BackgroundColor="{StaticResource ButtonBgColor}"
                     Clicked="BtnKargoUcretiHesapla_OnClicked"
-                    Text="Kargo Ücreti Hesapla"
+                    Margin="20"
+                    Text="Hesapla"
+                    TextColor="{StaticResource ButtonTextColor}"
                     x:Name="btnKargoUcretiHesapla" />
 
-                <!--  Alıcı Bilgileri Göster  -->
                 <Button
-                    Clicked="BtnAliciBilgiGoster_OnClicked"
-                    Text="Alıcı Bilgileri Göster"
-                    x:Name="btnAliciBilgiGoster" />
-
-                <!--  Gönderici Bilgileri Göster  -->
-                <Button
+                    BackgroundColor="{StaticResource ButtonBgColor}"
                     Clicked="BtnGondericiBilgiGoster_OnClicked"
-                    Text="Gönderici Bilgileri Göster"
+                    Margin="20"
+                    Text="Gönderici Bilgileri"
                     x:Name="btnGondericiBilgiGoster" />
 
+                <Button
+                    BackgroundColor="{StaticResource ButtonBgColor}"
+                    Clicked="BtnAliciBilgiGoster_OnClicked"
+                    Margin="20"
+                    Text="Alıcı Bilgileri"
+                    x:Name="btnAliciBilgiGoster" />
+
+                <Button
+                    BackgroundColor="{StaticResource ButtonBgColor}"
+                    Clicked="BtnTumBilgileriGoster_OnClicked"
+                    Margin="20"
+                    Text="Tüm Bilgileri Göster"
+                    x:Name="btnTumBilgileriGoster" />
+
+
+                <Button
+                    BackgroundColor="{StaticResource ButtonBgColor}"
+                    Clicked="BtnTumBilgileriTemizle_OnClicked"
+                    Margin="20"
+                    Text="Tüm Bilgileri Temizle"
+                    x:Name="btnTumBilgileriTemizle" />
+
+
             </VerticalStackLayout>
+
 
         </VerticalStackLayout>
 
